@@ -23,14 +23,28 @@ export function Home() {
 
   return (
     <div className='container'>
-    <h1>Lista de Presença</h1>
+
+    <header>
+        <h1>Lista de Presença</h1>
+        <div>
+          <strong> Arthur Carvalho</strong>
+          <img src="https://github.com/artiwnl.png" alt="Foto de Perfil"></img>
+        </div>
+      </header>
+
     <input type="text" placeholder="Digite seu nome..."
     onChange={e => setStudentName(e.target.value)}
     />
     <button type="button" onClick={handleAddStudent}>Adicionar</button>
 
     {
-      students.map(student => <Card name={student.name} time={student.time} /> )
+      students.map(student => (
+      <Card
+         key={student.time} //tem que ser único
+         name={student.name}
+         time={student.time}
+         /> 
+      ))
       
     }
     
